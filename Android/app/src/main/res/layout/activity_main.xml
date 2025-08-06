@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/userInfoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_info"
+        android:textSize="18sp"
+        android:paddingBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonAddTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_parking_ticket"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/buttonViewTickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_your_tickets"
+        android:layout_marginTop="8dp" />
+
+    <!-- Spacer to push the logout button to the bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout" />
+</LinearLayout>

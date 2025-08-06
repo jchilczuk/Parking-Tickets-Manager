@@ -1,0 +1,29 @@
+<resources>
+    <string name="user_info">Użytkownik:</string>
+    <string name="add_parking_ticket">Dodaj bilet parkingowy</string>
+    <string name="view_your_tickets">Przeglądaj swoje bilety</string>
+    <string name="logout">Wyloguj się</string>
+    <string name="expiration_date">Ważny do dnia</string>
+    <string name="expiration_time">Ważny do godziny</string>
+    <string name="search_tickets_by">Filtruj bilety</string>
+    <string name="license_number">Numer rejestracyjny pojazdu</string>
+    <string name="location">Lokalizacja</string>
+    <string name="your_tickets">Twoje bilety</string>
+    <string name="you_have_no_parking_tickets">Nie masz żadnych zapisanych biletów</string>
+    <string name="add_photo">Dodaj zdjęcie biletu</string>
+    <string name="save_ticket">Zapisz dane</string>
+    <string name="login">Nazwa użytkownika</string>
+    <string name="email">Email</string>
+    <string name="password">Hasło</string>
+    <string name="loginButton">Zaloguj się</string>
+    <string name="register">Zarejestruj się</string>
+    <string name="delete_ticket">Usuń bilet</string>
+    <string name="first_name">Imię</string>
+    <string name="last_name">Nazwisko</string>
+    <string name="confirm_password">Powtórz hasło</string>
+    <string name="registerConfirn">Zatwierdź</string>
+    <string name="loginTitle">Parking Tickets Manager</string>
+    <string name="no_account">Nie masz konta?</string>
+    <string name="addTicketData">Uzupełnij dane biletu parkingowego</string>
+    <string name="no_photo">Brak zdjęcia</string>
+</resources>
