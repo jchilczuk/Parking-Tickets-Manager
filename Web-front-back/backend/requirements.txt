@@ -1,0 +1,21 @@
+Flask>=2.3
+Flask-Cors
+Flask-JWT-Extended
+Flask-Mail
+Flask-SQLAlchemy>=3.1.1
+APScheduler
+psycopg2-binary
+python-dotenv
+pywebpush
+flask-apscheduler
+firebase-admin
+
+# test
+pytz
+pytest
+coverage
+
+# żeby działał push
+google-auth 
+google-auth-oauthlib
+

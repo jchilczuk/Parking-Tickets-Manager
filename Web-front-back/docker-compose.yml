@@ -1,0 +1,66 @@
+services:
+  # PostgreSQL database service
+  db:
+    image: postgres:17
+    container_name: db
+    environment:
+      POSTGRES_DB: parkingdb           # Database name
+      POSTGRES_USER: user              # Database user
+      POSTGRES_PASSWORD: password      # Database password
+    ports:
+      - "5432:5432"                    # Expose PostgreSQL port
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Persist database data
+
+  # Backend API service
+  backend:
+    build:
+      context: ./backend               # Build context for backend
+      dockerfile: Dockerfile           # Dockerfile location
+    container_name: backend
+    ports:
+      - "5000:5000"                    # Expose backend API port
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/parkingdb # DB connection string
+      JWT_SECRET_KEY: supersecret      # JWT secret key
+      MAIL_SERVER: smtp.gmail.com      # Mail server config
+      MAIL_PORT: 587
+      MAIL_USE_TLS: "True"
+      MAIL_USERNAME: kubagra105@gmail.com
+      MAIL_PASSWORD: cjcjjthjoiytqigj
+      MAIL_DEFAULT_SENDER: kubagra105@gmail.com
+      FIREBASE_KEY_PATH: /app/secrets/key.json # Path to Firebase key
+    volumes:
+      - ./backend/secrets:/app/secrets:ro # Mount secrets as read-only
+    depends_on:
+      - db                              # Wait for db to be ready
+
+  # Frontend client service
+  client:
+    build:
+      context: ./frontend               # Build context for frontend
+      dockerfile: Dockerfile            # Dockerfile location
+    container_name: client
+    ports:
+      - "3000:3000"                     # Expose frontend port
+    depends_on:
+      - backend                         # Wait for backend to be ready
+
+  # pgAdmin web UI for PostgreSQL
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    ports:
+      - "5050:80"                       # Expose pgAdmin web UI
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com   # pgAdmin login email
+      PGADMIN_DEFAULT_PASSWORD: admin          # pgAdmin login password
+      FLASK_ENV=development: # na potrzeby testów, usunąć później # For testing, remove later
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin   # Persist pgAdmin data
+    depends_on:
+      - db                              # Wait for db to be ready
+
+volumes:
+  pgdata:         # Volume for PostgreSQL data
+  pgadmin-data:   # Volume for pgAdmin data
